@@ -10,6 +10,7 @@ const ToDo = () => {
   const [newTodo1, setNewTodo1] = useState("");
   const [newTodo2, setNewTodo2] = useState("");
   const [newTodo3, setNewTodo3] = useState("");
+  const [formTodo, setFormTodo] =useState(false)
   const onchanche = (e) => {
     setNewTodo(e.target.value);
   };
@@ -43,14 +44,24 @@ const ToDo = () => {
           conPassword: newTodo3},
         
       ])
-    
+      setNewTodo('')
+      setNewTodo1('')
+      setNewTodo2('')
+      setNewTodo3('')
     };
-    localStorage.setItem('array',JSON.stringify(todo))
-
+    localStorage.setItem('array',JSON.stringify(todo));
+    const formFun=()=>{
+        return setFormTodo(!formTodo);
+    }
+    const delFun=(id)=>{
+        const deletUp=todo.filter((element)=>element.id !== id)
+        setTodo(deletUp)
+    }
   return (  
     <div className="container">
       <h1 className="text-center pe-3 pt-5">ToDo List</h1>
-      <form className="form" onSubmit={submitFun}>
+      <button onClick={formFun} className="addBtn text-center ">Form Add</button>
+      <form className={`${formTodo ? 'form d-block' : 'd-none'}`} onSubmit={submitFun}>
         <input
           name="setNewTodo" onChange={onchanche} value={newTodo}
           type="text"
@@ -75,16 +86,17 @@ const ToDo = () => {
           placeholder="Conform Password"
           className="input4 d-block w-100" value={newTodo3}
         />
-        <button className="form_btn w-100  d-block py-3 ">Add</button>
+        <button  className="form_btn w-100  d-block py-3 ">Add</button>
       </form>
-      <div className="row">
+      <div className="row gy-5  justify-content-lg-between justify-content-center">
         {todo.map((Element)=>(
-            <div className="col" key={Element.id}>
-                <h3 className="">{Element.fName}</h3>
-                <a>{Element.email}</a>
-                <h5>{Element.password}</h5>
-                <h5>{Element.conPassword}</h5>
-
+            <div className="col form__col" key={Element.id}>
+                <h3 className="text-center">{Element.fName}</h3>
+                <a className="text-center d-block text-decoration-none">{Element.email}</a>
+                <h5 className="text-center">{Element.password}</h5>
+                <h5 className="text-center">{Element.conPassword}</h5>
+                <h1 className="text-center">author: Mukhammadazam</h1>
+<button onClick={()=> delFun(Element.id)} className="form__btn d-block">delete</button>
             </div>
         ))}
       </div>

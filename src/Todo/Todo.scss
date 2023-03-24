@@ -23,4 +23,31 @@
       border: 2px solid #323;
     }
   }
+  &__btn {
+    border: none;
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fe0909;
+    padding: 5px 0;
+    color: #fff;
+  }
+  &__col {
+    max-width: 400px;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.addBtn{
+  display: block;
+  max-width: 600px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 10px 0;
+  border: 2px solid goldenrod;
+  background-color: #b1b100;
+  color: #fff;
 }
