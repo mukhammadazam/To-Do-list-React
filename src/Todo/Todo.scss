@@ -1,0 +1,26 @@
+.form {
+  max-width: 600px;
+  width: 100%;
+  margin: 100px auto;
+  input {
+    margin-bottom: 30px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+  }
+  &_btn {
+    border: none;
+    transition: all 2s ease;
+    color: #fff;
+    font-weight: 900;
+    background-color: rgb(16, 27, 145);
+    &:hover {
+      border-radius: 5px;
+      transition: all 2s ease;
+      color: rgb(16, 27, 145);
+      background-color: #fff;
+      border: 2px solid #323;
+    }
+  }
+}
