@@ -1,107 +1,121 @@
 import { useState } from "react";
 import "./Todo.scss";
-
-const ToDo = () => {
+const Todo = () => {
   const [todo, setTodo] = useState(() => {
-    const storeg = localStorage.getItem("array");
+    const storeg = localStorage.getItem("erray");
     return storeg ? JSON.parse(storeg) : [];
   });
-  const [newTodo, setNewTodo] = useState("");
-  const [newTodo1, setNewTodo1] = useState("");
-  const [newTodo2, setNewTodo2] = useState("");
-  const [newTodo3, setNewTodo3] = useState("");
-  const [formTodo, setFormTodo] =useState(false)
-  const onchanche = (e) => {
-    setNewTodo(e.target.value);
+  const [nTodo, setNtodo] = useState("");
+  const [nTodo1, setNtodo1] = useState("");
+  const [nTodo2, setNtodo2] = useState("");
+  const [nTodo3, setNtodo3] = useState("");
+  const [formAdd, setFormAdd] = useState(false);
+  const eventCHange = (e) => {
+    setNtodo(e.target.value);
   };
-  const onchanche1 = (e) => {
-    setNewTodo1(e.target.value);
+  const eventCHange1 = (e) => {
+    setNtodo1(e.target.value);
   };
-  const onchanche2 = (e) => {
-    setNewTodo2(e.target.value);
+  const eventCHange2 = (e) => {
+    setNtodo2(e.target.value);
   };
-  const onchanche3 = (e) => {
-    
-    setNewTodo3(e.target.value);
+  const eventCHange3 = (e) => {
+    setNtodo3(e.target.value);
   };
   const submitFun = (e) => {
     e.preventDefault();
-    if (
-      !newTodo.trim() &&
-      newTodo1.trim() &&
-      newTodo2.trim() !==
-      newTodo3.trim()
-    )
+    if (!nTodo.trim() && nTodo1.trim() && nTodo3.trim() !== nTodo2.trim())
       return;
-    
-      setTodo([
-        ...todo, {
-        
-          id: Date.now(),
-          fName: newTodo,
-          email: newTodo1,
-          password: newTodo2,
-          conPassword: newTodo3},
-        
-      ])
-      setNewTodo('')
-      setNewTodo1('')
-      setNewTodo2('')
-      setNewTodo3('')
-    };
-    localStorage.setItem('array',JSON.stringify(todo));
-    const formFun=()=>{
-        return setFormTodo(!formTodo);
-    }
-    const delFun=(id)=>{
-        const deletUp=todo.filter((element)=>element.id !== id)
-        setTodo(deletUp)
-    }
-  return (  
-    <div className="container">
-      <h1 className="text-center pe-3 pt-5">ToDo List</h1>
-      <button onClick={formFun} className="addBtn text-center ">Form Add</button>
-      <form className={`${formTodo ? 'form d-block' : 'd-none'}`} onSubmit={submitFun}>
+    setTodo([
+      ...todo,
+      {
+        id: Date.now(),
+        text: nTodo,
+        email: nTodo1,
+        password: nTodo2,
+        conPassword: nTodo3,
+      },
+    ]);
+    setNtodo("");
+    setNtodo1("");
+    setNtodo2("");
+    setNtodo3("");
+  };
+  localStorage.setItem("erray", JSON.stringify(todo));
+  const delFun = (id) => {
+    const deleteUp = todo.filter((el) => el.id !== id);
+    setTodo(deleteUp);
+  };
+  const formbtn = () => {
+    setFormAdd(!formAdd);
+  };
+
+  return (
+    <div className="container pt-5">
+      <h1 className="title">ToDo list</h1>
+      <button onClick={formbtn} className="form__add">
+        form Add
+      </button>
+      <form
+        onSubmit={submitFun}
+        className={`${formAdd ? "d-block form" : "d-none "} `}
+      >
         <input
-          name="setNewTodo" onChange={onchanche} value={newTodo}
+          className="d-block w-100 py-1 px-3 mb-5 border-top-0 border-start-0 border-end-0"
+          name="firstName"
+          placeholder="First Name"
           type="text"
-          placeholder="First name"
-          className="input1 d-block w-100 "
+          value={nTodo}
+          onChange={eventCHange}
         />
         <input
-          name="setNewTodo1" onChange={onchanche1}
-          type="email"
+          className="d-block w-100 py-1 px-3 mb-5 border-top-0 border-start-0 border-end-0"
+          name="email"
+          onChange={eventCHange1}
+          value={nTodo1}
           placeholder="Email"
-          className="input2 d-block w-100" value={newTodo1}
+          type="email"
         />
         <input
-          name="setNewTodo2" onChange={onchanche2}
+          className="d-block w-100 py-1 px-3 mb-5 border-top-0 border-start-0 border-end-0"
+          onChange={eventCHange2}
+          value={nTodo2}
+          name="password"
+          placeholder="Password"
           type="password"
-          placeholder="password"
-          className="input3 d-block w-100" value={newTodo2}
         />
         <input
-          name="setNewTodo3" onChange={onchanche3}
-          type="password"
+          className="d-block w-100 py-1 px-3 mb-5 border-top-0 border-start-0 border-end-0"
+          onChange={eventCHange3}
+          value={nTodo3}
+          name="conpassword"
           placeholder="Conform Password"
-          className="input4 d-block w-100" value={newTodo3}
+          type="password"
         />
-        <button  className="form_btn w-100  d-block py-3 ">Add</button>
+        <button className="form__btn">Add</button>
       </form>
-      <div className="row gy-5  justify-content-lg-between justify-content-center">
-        {todo.map((Element)=>(
-            <div className="col form__col" key={Element.id}>
-                <h3 className="text-center">{Element.fName}</h3>
-                <a className="text-center d-block text-decoration-none">{Element.email}</a>
-                <h5 className="text-center">{Element.password}</h5>
-                <h5 className="text-center">{Element.conPassword}</h5>
-                <h1 className="text-center">author: Mukhammadazam</h1>
-<button onClick={()=> delFun(Element.id)} className="form__btn d-block">delete</button>
-            </div>
+
+      <div className="row pb-5 justify-content-center justify-content-lg-between">
+        {todo.map((element) => (
+          <div
+            className="col pt-5 row__col justify-content-center"
+            key={element.id}
+          >
+            <p className="text-center row__item">{element.text}</p>
+            <a className="text-center row__item d-block text-decoration-none">
+              {element.email}
+            </a>
+            <h3 className="text-center row__item">{element.conPassword}</h3>
+            <h2 className="text-center row__item">{element.password}</h2>
+            <h1 className="text-center row__item">author:Mukhammad A'zam</h1>
+            <button className=" row__btn" onClick={() => delFun(element.id)}>
+              delete
+            </button>
+          </div>
         ))}
       </div>
     </div>
   );
 };
 
-export default ToDo;
+export default Todo;
