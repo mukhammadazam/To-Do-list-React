@@ -23,11 +23,11 @@ const Home = () => {
       setLoadeng(false);
     }
   }
-  input.onClick("keypress", (e) => {
-    if (e.key === "Enter") {
-        asncFun()
-    }
-  });
+  // input.onClick("keypress", (e) => {
+  //   if (e.key === "Enter") {
+  //       asncFun()
+  //   }
+  // });
   useEffect(() => {
     asncFun();
   }, []);
