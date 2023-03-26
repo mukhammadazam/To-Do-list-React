@@ -4,7 +4,7 @@ import ApiR from './ApiRender/Home';
 import Navbar from './navbar/Navbar';
 import Card from './cards/Card';
 import { Routes, Route,  Navigate } from 'react-router-dom';
-import './App.css'
+import './App.css';
 import Error from './error/Error';
 import Asia from './asia/Asia';
 function App() {

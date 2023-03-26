@@ -14,13 +14,13 @@ function BasicExample() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link>
-              <NavLink className="text-decoration-none text-white" to="/">
+              <NavLink className="text-decoration-none fs-4 nav__item" to="/">
                 Home
               </NavLink>
             </Nav.Link>
             <Nav.Link>
               <NavLink
-                className="text-decoration-none text-white"
+                className="text-decoration-none fs-4 nav__item"
                 to="/Todolist"
               >
                 ToDo
@@ -28,7 +28,7 @@ function BasicExample() {
             </Nav.Link>
             <Nav.Link>
               <NavLink
-                className="text-decoration-none text-white"
+                className="text-decoration-none fs-4 nav__item"
                 to="/Asia"
               >
                 Asia
@@ -37,7 +37,7 @@ function BasicExample() {
             <Nav.Link>
               <NavLink
                 to="/Europa"
-                className="text-decoration-none text-white"
+                className="text-decoration-none fs-4 nav__item"
               >
                 Eorupa
               </NavLink>

@@ -1,8 +1,12 @@
-
+import './Error.scss';
 const Error = () => {
   return (
-    <div>
-        <h1 className="text-center pt-5">NOT DEFOUT</h1>
+    <div className="container">
+<div className="E-title">
+
+<h1 className="   text-center  pt-5">NOT DEFOUT</h1>
+
+</div>
     </div>
   )
 }

@@ -5,5 +5,14 @@
   img {
     height: 250px;
   }
- 
+ &__content{
+  padding-top: 200px;
+ }
+ &_input{
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgb(217, 131, 131);
+  color: rgb(217, 131, 131);
+ }
 }

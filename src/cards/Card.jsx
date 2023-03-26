@@ -17,19 +17,22 @@ try {
     },[]);
   return (
     <div className="container pt-5">
-    <div className="row gy-5 justify-content-lg-between justify-content-center">
+ <div className="card__content">
+    <input type="text" className="w-75 d-block px-5 p-1 card_input" />
+ <div className="row gy-5 pt-5 m-0 justify-content-lg-between justify-content-center">
             
  
-       {
-        
-        
-        data.map((countres,index)=>(
-            <Cards key={index} img={countres.flags.png} title={countres.altSpellings[1].slice(0,20)} nomi={countres.region} 
-           data={countres.ccn3 } alt={countres.flags.alt}  />
-        ))
-    }
- 
-    </div>
+            {
+             
+             
+             data.map((countres,index)=>(
+                 <Cards key={index} img={countres.flags.png} title={countres.altSpellings[1].slice(0,20)} nomi={countres.region} 
+                data={countres.ccn3 } alt={countres.flags.alt}  />
+             ))
+         }
+      
+         </div>
+ </div>
     </div>
   )
 }
