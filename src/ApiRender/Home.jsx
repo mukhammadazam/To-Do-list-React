@@ -5,16 +5,11 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [loadeng, setLoadeng] = useState(false);
 //   const [error, setErrror] = useState(null);
-  const input = document.querySelector(".input");
  
   async function asncFun() {
     try {
-      let url;
-      if (input) {
-        url = `https://restcountries.com/v3.1/name/${input.value}`;
-      } else {
-        url = "https://restcountries.com/v3.1/all";
-      }
+      let url = "https://restcountries.com/v3.1/all";
+      
       const response = await axios.get(url);
       setData(response.data);
       setLoadeng(false);
@@ -31,7 +26,6 @@ const Home = () => {
     <div>
       {
         <div className="container">
-          <input type="text" className="input" />
           <div className="row justify-content-lg-between   ">
             {data.map((Element, index) => (
               <div
