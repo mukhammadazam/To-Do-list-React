@@ -17,17 +17,12 @@ const Home = () => {
       }
       const response = await axios.get(url);
       setData(response.data);
-      console.log(response.data);
       setLoadeng(false);
     } catch (error) {
       setLoadeng(false);
     }
   }
-  // input.onClick("keypress", (e) => {
-  //   if (e.key === "Enter") {
-  //       asncFun()
-  //   }
-  // });
+
   useEffect(() => {
     asncFun();
   }, []);

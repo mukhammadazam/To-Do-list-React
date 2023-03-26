@@ -7,31 +7,41 @@ import "./Navbar.scss";
 
 function BasicExample() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="navbar" expand="lg">
       <Container>
-        <Navbar.Brand className="logo text-danger" href="#home">
-          MkDAzM
-        </Navbar.Brand>
+        <Navbar.Brand className="logo text-danger">MkDAzM</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link>
-              <NavLink  className="text-decoration-none" to="/">Home</NavLink>
+              <NavLink className="text-decoration-none text-white" to="/">
+                Home
+              </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink className='text-decoration-none' to="/Todolist">ToDo</NavLink>
+              <NavLink
+                className="text-decoration-none text-white"
+                to="/Todolist"
+              >
+                ToDo
+              </NavLink>
             </Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link>
+              <NavLink
+                className="text-decoration-none text-white"
+                to="/Asia"
+              >
+                Asia
+              </NavLink>
+            </Nav.Link>
+            <Nav.Link>
+              <NavLink
+                to="/Europa"
+                className="text-decoration-none text-white"
+              >
+                Eorupa
+              </NavLink>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
