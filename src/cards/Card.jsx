@@ -16,11 +16,12 @@ try {
     
     },[]);
   return (
-    <div className="container">
+    <div className="container pt-5">
     <div className="row gy-5 justify-content-lg-between justify-content-center">
             
  
        {
+        
         
         data.map((countres,index)=>(
             <Cards key={index} img={countres.flags.png} title={countres.altSpellings[1].slice(0,20)} nomi={countres.region} 
