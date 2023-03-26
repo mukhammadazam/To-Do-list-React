@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import './Home.scss';
 const Home = () => {
   const [data, setData] = useState([]);
   const [loadeng, setLoadeng] = useState(false);
@@ -25,7 +25,8 @@ const Home = () => {
   return (
     <div>
       {
-        <div className="container">
+        <div className="container text_content">
+          <input className="w-75 input_in p-1 px-5" type="text" />
           <div className="row justify-content-lg-between   ">
             {data.map((Element, index) => (
               <div
