@@ -1,33 +1,23 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import './Home.scss';
 const Home = () => {
   const [data, setData] = useState([]);
   const [loadeng, setLoadeng] = useState(false);
 //   const [error, setErrror] = useState(null);
-  const input = document.querySelector(".input");
  
   async function asncFun() {
     try {
-      let url;
-      if (input) {
-        url = `https://restcountries.com/v3.1/name/${input.value}`;
-      } else {
-        url = "https://restcountries.com/v3.1/all";
-      }
+      let url = "https://restcountries.com/v3.1/all";
+      
       const response = await axios.get(url);
       setData(response.data);
-      console.log(response.data);
       setLoadeng(false);
     } catch (error) {
       setLoadeng(false);
     }
   }
-  input.onClick("keypress", (e) => {
-    if (e.key === "Enter") {
-        asncFun()
-    }
-  });
+
   useEffect(() => {
     asncFun();
   }, []);
@@ -35,8 +25,8 @@ const Home = () => {
   return (
     <div>
       {
-        <div className="container">
-          <input type="text" className="input" />
+        <div className="container text_content">
+          <input className="w-75 input_in p-1 px-5" type="text" />
           <div className="row justify-content-lg-between   ">
             {data.map((Element, index) => (
               <div

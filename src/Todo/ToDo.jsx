@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Todo.scss";
+
 const Todo = () => {
   const [todo, setTodo] = useState(() => {
     const storeg = localStorage.getItem("erray");
@@ -102,9 +103,9 @@ const Todo = () => {
             key={element.id}
           >
             <p className="text-center row__item">{element.text}</p>
-            <a className="text-center row__item d-block text-decoration-none">
+            <h6 className="text-center row__item d-block text-decoration-none">
               {element.email}
-            </a>
+            </h6>
             <h3 className="text-center row__item">{element.conPassword}</h3>
             <h2 className="text-center row__item">{element.password}</h2>
             <h1 className="text-center row__item">author:Mukhammad A'zam</h1>

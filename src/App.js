@@ -1,13 +1,28 @@
-import logo from './logo.svg';
 import './Todo/Todo.scss';
 import ToDo from './Todo/ToDo';
-import ApiR  from './ApiRender/Home';
+import ApiR from './ApiRender/Home';
+import Navbar from './navbar/Navbar';
+import Card from './cards/Card';
+import { Routes, Route,  Navigate } from 'react-router-dom';
+import './App.css';
+import Error from './error/Error';
+import Asia from './asia/Asia';
+import Pages from './page/Pages';
 function App() {
   return (
-    <div className="App">
-      <ApiR/>
-      <ToDo />
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+
+        <Route path='/' element={<ApiR />} />
+        <Route path='Todolist' element={<ToDo />} />
+        <Route path='/Error-404' element={<Error />} />
+        <Route path='/Europa' element={<Card />} />
+        <Route path='/Asia' element={<Asia />} />
+        <Route path='/pages' element={<Pages/>}/>
+        <Route path='*' element={<Navigate to='/Error-404' />} />
+
+      </Routes></>
   );
 }
 

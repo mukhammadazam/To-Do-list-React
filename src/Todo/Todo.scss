@@ -13,7 +13,7 @@
   background-color: #0d97a9;
   color: #fff;
   padding: 10px 0;
-  &:hover{
+  &:hover {
     border: 2px solid #0d97a9;
     background-color: rgb(3, 215, 3);
   }
@@ -37,17 +37,14 @@
 }
 
 .row {
- &__col{
-  height: 400px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-  
- }
-  &__btn{
+  &__col {
+    height: 400px;
+    flex-direction: column;
+    align-content: space-between;
+  }
+  &__btn {
 display: block;
-    align-self: flex-end;
-    max-width:600px; 
+    max-width: 600px;
     width: 100%;
     margin: 0 auto;
     border: none;
@@ -56,8 +53,9 @@ display: block;
     color: #fff;
     background-color: #220e0e;
   }
-  &__item{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  &__item {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
     cursor: pointer;
   }
 }
