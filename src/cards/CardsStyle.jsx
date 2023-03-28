@@ -8,8 +8,9 @@ const CardsStyle = (props) => {
       <img className="px-0 d-block" src={img} alt={alt} />
       <h1 className="text-center pt-3">{nomi}</h1>
       <h2 className="text-center">{title}</h2>
+      {console.log(data)}
       <Link
-        to={`countres/${data}`}
+        to={`countres/${ccn3}`}
         className="text-decoration-none card__btn mt-3  fs-5  align-items-end ms-5 "
       >
         Read More

@@ -29,6 +29,7 @@ try {
                  <Cards key={index} img={countres.flags.png} title={countres.altSpellings[1].slice(0,20)} nomi={countres.region} 
                 data={countres.ccn3 } alt={countres.flags.alt}  />
              ))
+
          }
       
          </div>
